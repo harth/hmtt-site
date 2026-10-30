@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HMTT Ltd · Java & integration engineering, Stirling</title>
+  <meta name="description" content="HMTT Ltd is a software consultancy in Bridge of Allan, Stirling, delivering Java and Spring Boot microservices, integration and delivery automation for public sector, telecoms and financial services.">
+  <meta property="og:title" content="HMTT Ltd · Software engineering">
+  <meta property="og:description" content="Java microservices, integration and delivery automation. Bridge of Allan, Stirling.">
+  <meta property="og:image" content="https://hmtt.co.uk/img/logo-480.png">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#14161a">
+  <link rel="icon" href="/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    try { const t = localStorage.getItem('hmtt-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="HMTT Ltd home">
+        <img src="/img/logo-160.webp" alt="" width="36" height="31">
+        <span>HMTT<span class="brand-ltd">Ltd</span></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#toolkit">Toolkit</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Software engineering · Bridge of Allan, Stirling</p>
+          <h1>Dependable software for systems that <em>have&nbsp;to&nbsp;work</em>.</h1>
+          <p class="lede">HMTT is a small Scottish consultancy building Java microservices, integrations and delivery automation for public sector, telecoms and financial services organisations.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <a class="btn btn-ghost" href="#experience">See recent work</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="streaks"><span></span><span></span><span></span><span></span></div>
+          <img class="hero-logo" src="/img/logo-480.webp" alt="" width="480" height="419">
+        </div>
+        <div class="status-card" id="status-card" hidden>
+          <div class="status-head"><span class="dot"></span>hmtt status</div>
+          <dl class="status-body"></dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts" aria-label="At a glance">
+      <ul class="wrap facts-list">
+        <li class="fact-years"><strong>25+ years</strong><span>building enterprise Java, 1999 to today</span></li>
+        <li><strong>Public sector</strong><span>HMCTS · Registers of Scotland · National Records of Scotland</span></li>
+        <li><strong>Telecoms</strong><span>Sky — fulfilment and order management, <span class="nw">2014–2024</span></span></li>
+        <li><strong>Financial services</strong><span>Prudential and Capita, <span class="nw">1999–2014</span></span></li>
+      </ul>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="section-num">01 / Services</p>
+          <h2>What we do</h2>
+          <p class="section-intro">Practical engineering, delivered as part of your team.</p>
+        </header>
+        <div class="admin-only admin-section-bar">
+          <button class="btn btn-small" type="button" data-add="services">+ Add service</button>
+        </div>
+        <div class="services-grid" id="services-list"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="experience">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="section-num">02 / Experience</p>
+          <h2>Clients and engagements</h2>
+          <p class="section-intro">Most recent first. Select an engagement for the detail.</p>
+        </header>
+        <div class="filter-row" role="group" aria-label="Filter by sector" id="sector-filter"></div>
+        <div class="admin-only admin-section-bar">
+          <button class="btn btn-small" type="button" data-add="jobs">+ Add engagement</button>
+        </div>
+        <ol class="timeline" id="jobs-list"></ol>
+      </div>
+    </section>
+
+    <section class="section" id="toolkit">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="section-num">03 / Toolkit</p>
+          <h2>Tools used day to day</h2>
+        </header>
+        <dl class="toolkit reveal">
+          <div><dt>Languages</dt><dd>Java 21 · Groovy · SQL · TypeScript</dd></div>
+          <div><dt>Frameworks</dt><dd>Spring Boot · Hibernate · Apache Camel · jBPM</dd></div>
+          <div><dt>Messaging</dt><dd>Kafka · RabbitMQ · AWS SQS</dd></div>
+          <div><dt>Data</dt><dd>PostgreSQL · Oracle · MongoDB</dd></div>
+          <div><dt>Delivery</dt><dd>Docker · Kubernetes / OpenShift · Jenkins · GitLab CI · SonarQube</dd></div>
+          <div><dt>Testing</dt><dd>JUnit · Mockito · WireMock · Playwright · Cypress · Cucumber</dd></div>
+          <div><dt>Front end</dt><dd>React · TypeScript</dd></div>
+          <div><dt>Cloud &amp; AI</dt><dd>AWS · Azure · Claude · Codex</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="about">
+      <div class="wrap about">
+        <figure class="portrait reveal">
+          <picture>
+            <source srcset="/img/stuart-wilson.webp" type="image/webp">
+            <img src="/img/stuart-wilson.jpg" alt="Stuart Wilson" width="640" height="640" loading="lazy">
+          </picture>
+        </figure>
+        <div class="about-copy reveal">
+          <p class="section-num">04 / About</p>
+          <h2>Stuart Wilson</h2>
+          <p class="about-role">Founder &amp; Technical Director</p>
+          <p>Stuart has spent 25 years building enterprise software. He started at Prudential in 1999 as a COBOL programmer, moved into Java, and became an application architect at Capita before contracting for Sky, National Records of Scotland, Registers of Scotland and HM Courts &amp; Tribunals Service.</p>
+          <p>He works best as a hands-on technical lead: writing the design, writing the code, and helping the team around him test it properly. He is comfortable in front of stakeholders, turning policy and business rules into software that does what it should.</p>
+          <p class="about-edu">BSc (Hons) Mathematics &amp; Business Studies, First Class · University of Edinburgh</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="wrap contact-inner reveal">
+        <p class="section-num">05 / Contact</p>
+        <h2>Have a project or a role in mind?</h2>
+        <p class="section-intro">Contract and project enquiries welcome.</p>
+        <a class="contact-email" href="mailto:stuart@hmtt.co.uk">stuart@hmtt.co.uk</a>
+        <ul class="contact-links">
+          <li><a href="https://www.linkedin.com/in/stuart-wilson-hmtt/" rel="noopener" target="_blank">LinkedIn</a></li>
+          <li>Bridge of Allan, Stirling</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© <span id="year">2026</span> HMTT Ltd.</p>
+      <button class="link-btn" type="button" id="admin-link">Admin</button>
+    </div>
+  </footer>
+
+  <div class="admin-bar" id="admin-bar" hidden>
+    <span class="admin-who" id="admin-who"></span>
+    <button class="btn btn-small" type="button" id="seed-btn" hidden>Publish default content</button>
+    <button class="btn btn-small btn-ghost" type="button" id="signout-btn">Sign out</button>
+  </div>
+
+  <dialog class="editor" id="editor">
+    <form method="dialog" id="editor-form">
+      <h3 id="editor-title">Edit</h3>
+      <div id="editor-fields"></div>
+      <div class="editor-actions">
+        <button class="btn btn-ghost" value="cancel" formnovalidate type="submit">Cancel</button>
+        <button class="btn btn-primary" value="save" type="submit" id="editor-save">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+rules_version = '2';
+
+// Public can read services and jobs. Only signed-in users whose Firebase user ID
+// has a document in the `admins` collection can change them. Admins are added by
+// hand in the Firebase console, so no email addresses live in the code.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Each user may check only their own entry; nobody can write via the app.
+    match /admins/{uid} {
+      allow get: if request.auth != null && request.auth.uid == uid;
+      allow list, write: if false;
+    }
+
+    function isStr(v, max) { return v is string && v.size() <= max; }
+    function isList(v, max) { return v is list && v.size() <= max; }
+
+    function validService(d) {
+      return d.keys().hasOnly(['title', 'summary', 'tags', 'order', 'updatedAt'])
+        && isStr(d.title, 120) && d.title.size() > 0
+        && isStr(d.summary, 800)
+        && isList(d.tags, 12)
+        && d.order is number;
+    }
+
+    function validJob(d) {
+      return d.keys().hasOnly(['client', 'role', 'start', 'end', 'sector', 'location',
+                               'summary', 'highlights', 'tech', 'order', 'updatedAt'])
+        && isStr(d.client, 120) && d.client.size() > 0
+        && isStr(d.role, 120)
+        && isStr(d.start, 40) && isStr(d.end, 40)
+        && isStr(d.sector, 60) && isStr(d.location, 80)
+        && isStr(d.summary, 1000)
+        && isList(d.highlights, 12)
+        && isList(d.tech, 20)
+        && d.order is number;
+    }
+
+    match /services/{id} {
+      allow read: if true;
+      allow create, update: if isAdmin() && validService(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /jobs/{id} {
+      allow read: if true;
+      allow create, update: if isAdmin() && validJob(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

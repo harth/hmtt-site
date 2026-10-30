@@ -1,0 +1,8 @@
+---
+# cPanel Git Version Control runs this on "Deploy HEAD Commit" (or automatically
+# after a push). It copies the site into public_html. firebase-config.js isn't
+# in the repo, so the copy you uploaded by hand is left in place.
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/hmttcouk/public_html/
+    - /bin/cp -R public/. $DEPLOYPATH

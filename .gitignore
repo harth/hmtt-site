@@ -1,0 +1,14 @@
+# Real Firebase web config — upload to the server once by hand
+public/js/firebase-config.js
+
+# Firebase CLI local files
+.firebase/
+firebase-debug.log*
+firestore-debug.log*
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.zip
